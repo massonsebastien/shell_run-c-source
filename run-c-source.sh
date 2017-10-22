@@ -103,7 +103,7 @@ usage()
 
 	echo "REPORTING BUGS"
 	echo "   Please don't"
-	echo "   Fix them instead, and push an commit an update on github"
+	echo "   Fix them instead, and push an update on github"
 	echo
 
 	echo "SEE ALSO"
