@@ -2,18 +2,18 @@
 #############################################################################
 # DESCRIPTION
 # This script opens a C source file for edition; it compiles the source; and
-# finally run the newly compiled program for testing.
+# finally runs the compiled program for testing purpose.
 # 
 # USAGE
 # ./run-c-source.sh -h
 #############################################################################
 # REQUIREMENTS
 # This script expects gcc to be installed on the running system.  If it can't
-# be find, it will return an error.
+# be found, it will return an error.
 # The default editor is vim; this can be changed under the comment "Settings"
 # Another editor can be passed in argument.
 #############################################################################
-# ERRORS
+# RETURNED ERRORS
 # 	1	Editor not found
 #	2	Compiler (gcc) not found
 #	3	Template file not found
@@ -32,15 +32,15 @@
 #   bunch of money;
 # - Be kind with your neighbors; and
 # - Save the planet;
-# - Don't piss me off with stupid questions (I'd love to read smart questions
+# - Don't piss me off with stupid questions (I'd love to read smart ones
 #   anyhow);
 # - People I know IRL are welcome with smart and silly questions;
 # - People I don't know IRL should change this prior to formulate stupid
-#   requests.
+#   requests: My friendship can be bought with beers, chocolate or tiramisu.
 #############################################################################
 
 # Settings
-editor_name="vim"		# Default (command for) editor
+editor_name="vim"		# Default (command) editor
 source_filename="new.c"		# Default filename for C source files
 
 #############################################################################
@@ -67,6 +67,7 @@ usage()
 	echo "   <file.x> can have one of the following extensions: .c or .h (case sensitive)"
 	echo "   If <file.x> is not supplied \"$source_filename\" will be used instead"
 	echo "   Compilation is performed with \"gcc -Wall -Wextra -O2 -g -o <file> <file.c>\""
+	echo "   Refer to gcc man page for further info about these options"
 	echo
 
 	echo "OPTIONS"
@@ -102,6 +103,7 @@ usage()
 
 	echo "REPORTING BUGS"
 	echo "   Please don't"
+	echo "   Fix them instead, and push an commit an update on github"
 	echo
 
 	echo "SEE ALSO"
