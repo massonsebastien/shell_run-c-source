@@ -209,18 +209,12 @@ if [ $use_template -eq 1 ]; then
 	if [ -e "$source_filename" ]; then
 		echo "already exists: Opening source without copying template"
 	else
-if [ $clean_screen -eq 1 ]; then
-	clear
-else
-	echo		# Empty lines to keep script outputs far from program ones
-	echo
-	echo
-fi
 		echo -n "does not exist: Copying template ... "
 		cp $template_filename $source_filename
 		echo "done"
 	fi
 fi
+
 
 #############################################################################
 # Opening source for edition
@@ -232,7 +226,8 @@ echo "closed now"
 #############################################################################
 # Building source
 #############################################################################
-if [ $build_source -eq 1 ] && [ -e "$binary_filename" ]; then
+#if [ $build_source -eq 1 ] && [ -e "$binary_filename" ]; then
+if [ $build_source -eq 1 ]; then
 	if [[ $source_filename =~ \.c$ ]]; then
 		echo "Source file ends with .c: Compiling source ..."
 		echo "------------------------------------------------------"
@@ -257,11 +252,12 @@ else
 		if [ $clear_screen -eq 1 ]; then
 			clear
 		else
-			echo	# Empty lines to keep script outputs far from prog ones
-			echo
-			echo
+			echo "===== RUNNING PROGRAM STARTS HERE AFTER ====="
 		fi
 		./$binary_filename
+		if ! [ $clear_screen -eq 1 ]; then
+			echo "===== RUNNING PROGRAM HAS JUST STOPPED HERE ABOVE  ====="
+		fi
 	else
 		echo "Program not ran"
 	fi
